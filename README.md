@@ -1,5 +1,5 @@
-# projet python en 1 semain
+# projet python
 
-objectif :
+Objectif : Réaliser une application python en 1 semaine.
 
-temps imparti :
+Contexte : 
