@@ -8,7 +8,7 @@ class App (ABC):
 
 # -----------------------------------
     # Methods
-    @abstractmethod
+    @abstractmethod # permet de modifier la méthode juste en bas et avoir une méthode abstraite au lien d'une méthode concrète
     def app_launch(self): pass
 
     @abstractmethod
