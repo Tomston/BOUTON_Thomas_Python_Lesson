@@ -21,8 +21,8 @@ def main(application_mode):
     # Main Function Switch
     match application_mode:
         case "Terminal":
-            print("Well done")
-             # Application instance
+            # print("Well done")
+            # Application instance
             application_instance = Terminal() # create the App instance from application file
             # terminal_instance.app_quit() # quit the instance form application file
             pass

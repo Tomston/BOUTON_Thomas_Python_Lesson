@@ -79,8 +79,8 @@ class GUIApplication (App, customtkinter.CTk):
         self.padding.grid(row=21, column=0, ipady=5)
 
 
-        self.three_mounths = customtkinter.CTkButton(self, text="3 mounths", command=self.app_menu)
-        self.three_mounths.grid(row=22, column=0, padx=50)
+        self.three_months = customtkinter.CTkButton(self, text="3 months", command=self.app_menu)
+        self.three_months.grid(row=22, column=0, padx=50)
         self.one_year = customtkinter.CTkButton(self, text="1 year", command=self.app_menu)
         self.one_year.grid(row=22, column=1, padx=50)
         self.five_years = customtkinter.CTkButton(self, text="5 years", command=self.app_menu)
