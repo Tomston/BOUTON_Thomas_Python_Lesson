@@ -1,5 +1,6 @@
 from application_tkinter import GUIApplication
 
+# Pour la partie dynamique avec l'API google
 class cours_index:
   def __init__(self, myapp):
     self.myapp = GUIApplication()

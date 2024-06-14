@@ -60,9 +60,9 @@ class GUIApplication (App, customtkinter.CTk):
         """
         # Padding for the GUI
         self.padding = customtkinter.CTkLabel(self, text="")
-        self.padding.grid(row=0, ipady=20)
+        self.padding.grid(row=0, ipady=10)
 
-        self.cours = customtkinter.CTkLabel(self, text="Quel est le cours boursier que vous voulez répliquer : ?")
+        self.cours = customtkinter.CTkLabel(self, text="Quel est le cours boursier que vous voulez répliquer : ?", font=(17,17))
         self.cours.grid(row=20, column=1)
 
         self.combobox_index = customtkinter.CTkComboBox(self, values=["Nasdaq100", "S&P500", "CAC40", "Eurostoxx50", "MSCI World"])
@@ -70,23 +70,26 @@ class GUIApplication (App, customtkinter.CTk):
         self.test_button_index = customtkinter.CTkButton(self, text="Input", command=self.get_value_index)
         self.test_button_index.grid(row=20, column=3)
         
-        # execute for the first time the function
+        # execute the get_value_index() method before to click on the 'Input' button
         self.get_value_index()
         # print(f"{self.combobox_index.get()}")
 
         # Padding for the GUI
         self.padding = customtkinter.CTkLabel(self, text="")
-        self.padding.grid(row=21, column=0, ipady=5)
+        self.padding.grid(row=21, column=0)
 
 
-        self.three_months = customtkinter.CTkButton(self, text="3 months", command=self.app_menu)
-        self.three_months.grid(row=22, column=0, padx=50)
-        self.one_year = customtkinter.CTkButton(self, text="1 year", command=self.app_menu)
+        self.three_months = customtkinter.CTkButton(self, fg_color=("#0000FF"), text="3 months", command=self.app_menu) # Do nothing
+        self.three_months.grid(row=22, column=0, padx=20)
+        self.one_year = customtkinter.CTkButton(self, fg_color=("#0000FF"), text="1 year", command=self.app_menu) # Do nothing
         self.one_year.grid(row=22, column=1, padx=50)
-        self.five_years = customtkinter.CTkButton(self, text="5 years", command=self.app_menu)
+        self.five_years = customtkinter.CTkButton(self, fg_color=("#0000FF"), text="5 years", command=self.app_menu) # Do nothing
         self.five_years.grid(row=22, column=2, padx=50) 
-        self.ten_years = customtkinter.CTkButton(self, text="10 years", command=self.app_menu)
-        self.ten_years.grid(row=22, column=3, padx=50)
+        self.ten_years = customtkinter.CTkButton(self, fg_color=("#0000FF"), text="10 years", command=self.app_menu) # Do nothing
+        self.ten_years.grid(row=22, column=3, padx=100)
+
+        self.button_quit = customtkinter.CTkButton(self, fg_color=("#FF0000"), text="Quit Application", command=self.button_app_quit)
+        self.button_quit.grid(row=50, column=3, pady=600)
 
     """     
     def display_stock_price(self):
@@ -103,30 +106,32 @@ class GUIApplication (App, customtkinter.CTk):
 
         match self.get_combo_index:
             case "Nasdaq100":
-                self.Open_Nasdaq_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/Nasdaq100_index.png"), size=(1000, 550))
-                self.Open_Nasdaq_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_Nasdaq_index_picture, text="")
-                self.Open_Nasdaq_index_picture_label.grid(row=30, column=0, columnspan=5, pady=5)
-            case "S&P500":
-                self.Open_Nasdaq_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/S&P500_index.png"), size=(1000, 550))
-                self.Open_Nasdaq_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_Nasdaq_index_picture, text="")
-                self.Open_Nasdaq_index_picture_label.grid(row=30, column=0, columnspan=5, pady=5)
-            case "CAC40":
-                self.Open_Nasdaq_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/CAC40_index.png"), size=(1000, 550))
-                self.Open_Nasdaq_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_Nasdaq_index_picture, text="")
-                self.Open_Nasdaq_index_picture_label.grid(row=30, column=0, columnspan=5, pady=5)
-            case "Eurostoxx50":
-                self.Open_Nasdaq_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/Eurostoxx50_index.png"), size=(1000, 550))
-                self.Open_Nasdaq_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_Nasdaq_index_picture, text="")
-                self.Open_Nasdaq_index_picture_label.grid(row=30, column=0, columnspan=5, pady=5)
-            case "MSCI World":
-                self.Open_Nasdaq_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/MSCIWORLD_index.png"), size=(1000, 550))
-                self.Open_Nasdaq_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_Nasdaq_index_picture, text="")
-                self.Open_Nasdaq_index_picture_label.grid(row=30, column=0, columnspan=5, pady=5)
-            case _:
-                self.Open_Nasdaq_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/Nasdaq100_index.png"), size=(1000, 550))
-                self.Open_Nasdaq_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_Nasdaq_index_picture, text="")
-                self.Open_Nasdaq_index_picture_label.grid(row=30, column=0, columnspan=5, pady=5)
+                self.Open_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/Nasdaq100_index.png"), size=(1060, 560))
+                self.Open_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_index_picture, text="")
+                self.Open_index_picture_label.place(x=20, y=150)
+                # Or : self.Open_index_picture_label.grid(row=30, column=0, columnspan=4, pady=5) - with a bug
 
+            case "S&P500":
+                self.Open_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/S&P500_index.png"), size=(1060, 560))
+                self.Open_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_index_picture, text="")
+                self.Open_index_picture_label.place(x=20, y=150)
+            case "CAC40":
+                self.Open_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/CAC40_index.png"), size=(1060, 560))
+                self.Open_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_index_picture, text="")
+                self.Open_index_picture_label.place(x=20, y=150)
+            case "Eurostoxx50":
+                self.Open_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/Eurostoxx50_index.png"), size=(1060, 560))
+                self.Open_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_index_picture, text="")
+                self.Open_index_picture_label.place(x=20, y=150)
+            case "MSCI World":
+                self.Open_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/MSCIWORLD_index.png"), size=(1060, 560))
+                self.Open_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_index_picture, text="")
+                self.Open_index_picture_label.place(x=20, y=150)
+            case _:
+                self.Open_index_picture = customtkinter.CTkImage(light_image=Image.open("projet_python/src/Nasdaq100_index.png"), size=(1060, 560))
+                self.Open_index_picture_label = customtkinter.CTkLabel(self, image=self.Open_index_picture, text="")
+                self.Open_index_picture_label.place(x=20, y=150)
+    
     def app_menu (self): ...
 
     def app_options (self): 

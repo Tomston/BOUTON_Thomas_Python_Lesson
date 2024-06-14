@@ -1,5 +1,5 @@
 from application import App
-from data import data
+from database import data
 
 # print("Balise : fichier terminal")
 
